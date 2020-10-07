@@ -1,0 +1,35 @@
+version: '3'
+services:
+   mysql-docker-container:
+      image: 'mysql:5.7'
+      networks:
+        - production-network
+      environment:
+        - MYSQL_ROOT_PASSWORD=root
+        - MYSQL_DATABASE=petz
+        - MYSQL_USER=root
+        - MYSQL_PASSWORD=root
+      ports:
+        - '3301:3306'
+      restart: always
+      volumes:
+        - /data/mysql
+
+   spring-boot-jpa-app:
+      image: spring-boot-jpa-image
+      networks:
+        - production-network
+      restart: always
+      build:
+        context: ./
+        dockerfile: Dockerfile
+      depends_on:
+        - mysql-docker-container
+      ports:
+        - 8087:8080
+      volumes:
+        - /data/spring-boot-app
+
+networks:
+   production-network:
+      driver: bridge
