@@ -1,8 +1,9 @@
-# Teste Petz 2020
+# Teste Petz para consumo de APIs Rest em controle de produtos.
+# Autor: Willian Roberto Montrezol
 
 Utilize **docker-compose.yaml**.
 
-## Tecnologias
+## Tecnologias BackEnd
 
 - Spring Boot 2
 - Docker
@@ -23,12 +24,12 @@ Utilize **docker-compose.yaml**.
 ```
 
 ```
-INSERT INTO `address` VALUES ('1', 'SAO PAULO', 'BRASIL');
-INSERT INTO `address` VALUES ('2', 'BRASILIA', 'BRASIL');
+INSERT INTO `address` VALUES ('1', 'RIO DE JANEIRO', 'BRASIL');
+INSERT INTO `address` VALUES ('2', 'MINAS GERAIS', 'BRASIL');
 
-INSERT INTO `client` VALUES ('1', 'Heitor Araujo Martins', '1');
-INSERT INTO `client` VALUES ('2', 'Valmir Santos Neto', '1');
-INSERT INTO `client` VALUES ('3', 'Luciano Paccios', '2');
+INSERT INTO `client` VALUES ('1', 'Luiz Antonio Correa das Costa', '1');
+INSERT INTO `client` VALUES ('2', 'Marcos Evangelista de Moraes', '1');
+INSERT INTO `client` VALUES ('3', 'Lucas Prato', '2');
 
 INSERT INTO `document` VALUES ('1', '98176897272', 'CPF');
 INSERT INTO `document` VALUES ('2', '583437965', 'RG');
@@ -38,8 +39,8 @@ INSERT INTO `client_documents` VALUES ('1', '1');
 INSERT INTO `client_documents` VALUES ('2', '2');
 INSERT INTO `client_documents` VALUES ('3', '3');
 
-INSERT INTO `pet` VALUES ('4', '9', 'Kelly', '1');
-INSERT INTO `pet` VALUES ('5', '2', 'Pluft', '2');
+INSERT INTO `pet` VALUES ('4', '9', 'Peppa', '1');
+INSERT INTO `pet` VALUES ('5', '2', 'Madruguinha', '2');
 
 ```
 
@@ -58,11 +59,11 @@ update
 curl -X PUT 'http://localhost:8087/v1/client/{id}'
 {
     "id": 1,
-    "name": "Heitor Araujo Martins",
+    "name": "Luiz Antonio Correa das Costa",
     "address": {
         "id": 1,
         "country": "BRASIL",
-        "city": "SAO PAULO"
+        "city": "RIO DE JANEIRO"
     },
     "documents": [
         {
@@ -78,11 +79,11 @@ create
 curl -X POST 'http://localhost:8087/v1/client'
 {
     "id": null,
-    "name": "Heitor Araujo Martins",
+    "name": "Luiz Antonio Correa das Costa",
     "address": {
         "id": 1,
         "country": "BRASIL",
-        "city": "SAO PAULO"
+        "city": "RIO DE JANEIRO"
     },
     "documents": [
         {
